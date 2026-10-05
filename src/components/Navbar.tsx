@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { rememberGalleryReturnPosition } from '@/lib/galleryNavigation';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -60,6 +61,15 @@ export default function Navbar() {
               </button>
             </li>
           ))}
+          <li>
+            <Link
+              to="/gallery"
+              onClick={rememberGalleryReturnPosition}
+              className="text-sm font-medium text-primary-100 transition-colors duration-200 hover:text-white"
+            >
+              Gallery
+            </Link>
+          </li>
           <li className="relative">
             <button
               type="button"
@@ -83,6 +93,14 @@ export default function Navbar() {
                   className="block rounded px-3 py-2.5 text-sm font-medium text-primary-800 transition-colors hover:bg-gray-50 hover:text-accent-700"
                 >
                   Auction service terms
+                </Link>
+                <Link
+                  to="/terms/debt-collection-services"
+                  role="menuitem"
+                  onClick={() => setTermsOpen(false)}
+                  className="block rounded px-3 py-2.5 text-sm font-medium text-primary-800 transition-colors hover:bg-gray-50 hover:text-accent-700"
+                >
+                  Debt collection terms
                 </Link>
                 <Link
                   to="/terms/repossession-services"
@@ -129,6 +147,18 @@ export default function Navbar() {
                 </button>
               </li>
             ))}
+            <li>
+              <Link
+                to="/gallery"
+                onClick={() => {
+                  rememberGalleryReturnPosition();
+                  setMenuOpen(false);
+                }}
+                className="block py-2 text-base font-medium text-primary-100 transition-colors hover:text-white"
+              >
+                Gallery
+              </Link>
+            </li>
             <li className="border-t border-primary-700 pt-3">
               <p className="mb-2 text-xs font-semibold uppercase text-primary-300">
                 Terms &amp; Conditions
@@ -139,6 +169,13 @@ export default function Navbar() {
                 className="block py-2 text-base font-medium text-primary-100 hover:text-white"
               >
                 Auction service terms
+              </Link>
+              <Link
+                to="/terms/debt-collection-services"
+                onClick={() => setMenuOpen(false)}
+                className="block py-2 text-base font-medium text-primary-100 hover:text-white"
+              >
+                Debt collection terms
               </Link>
               <Link
                 to="/terms/repossession-services"

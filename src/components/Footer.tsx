@@ -1,9 +1,10 @@
 import { Facebook, Instagram, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { rememberGalleryReturnPosition } from '@/lib/galleryNavigation';
 
 const quickLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Why Zafrica', href: '#company-profile' },
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -46,7 +47,7 @@ export default function Footer() {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://www.instagram.com/zafrica"
+                href="https://www.instagram.com/_zafrica"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Zafrica on Instagram"
@@ -73,6 +74,15 @@ export default function Footer() {
                   </button>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/gallery"
+                  onClick={rememberGalleryReturnPosition}
+                  className="text-sm text-primary-300 transition-colors duration-200 hover:text-white"
+                >
+                  Gallery
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -103,6 +113,11 @@ export default function Footer() {
               <li>
                 <a href="/terms/auction-services" className="text-sm text-primary-300 hover:text-white transition-colors duration-200">
                   Auction services
+                </a>
+              </li>
+              <li>
+                <a href="/terms/debt-collection-services" className="text-sm text-primary-300 hover:text-white transition-colors duration-200">
+                  Debt collection services
                 </a>
               </li>
               <li>

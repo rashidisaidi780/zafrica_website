@@ -43,7 +43,7 @@ const services = [
   {
     icon: Landmark,
     title: 'Debt Collection Services',
-    termsPath: '/terms/repossession-services',
+    termsPath: '/terms/debt-collection-services',
     description:
       'Structured, client-focused recovery solutions from early follow-up through legal enforcement support.',
     offerings: [

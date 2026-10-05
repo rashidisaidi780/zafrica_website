@@ -5,17 +5,17 @@ const details = [
   {
     icon: MapPin,
     label: 'Address',
-    value: '123 Business Park Drive,\nJohannesburg, South Africa',
+    value: 'Dar es Salaam, Tanzania\nP.O. Box 15227',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+27 (0) 11 234 5678',
+    value: 'Phone: +255 723 763 911\n WhatsApp: +255 666 004 358',
   },
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@zafrica.co.za',
+    value: 'info@zafrica.co.tz',
   },
   {
     icon: Clock,

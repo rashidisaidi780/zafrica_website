@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AuctionShowcase from '@/components/AuctionShowcase';
@@ -10,9 +11,16 @@ import Footer from '@/components/Footer';
 import SectionWave from '@/components/SectionWave';
 import AuctionTerms from '@/pages/AuctionTerms';
 import RepossessionTerms from '@/pages/RepossessionTerms';
+import DebtCollectionTerms from '@/pages/DebtCollectionTerms';
+import Gallery from '@/pages/Gallery';
 import { Route, Routes } from 'react-router-dom';
+import { restoreGalleryReturnPosition } from '@/lib/galleryNavigation';
 
 function HomePage() {
+  useEffect(() => {
+    restoreGalleryReturnPosition();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -42,6 +50,8 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/terms/auction-services" element={<AuctionTerms />} />
       <Route path="/terms/repossession-services" element={<RepossessionTerms />} />
+      <Route path="/terms/debt-collection-services" element={<DebtCollectionTerms />} />
+      <Route path="/gallery" element={<Gallery />} />
       <Route path="*" element={<HomePage />} />
     </Routes>
   );

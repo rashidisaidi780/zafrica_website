@@ -5,25 +5,39 @@ import {
   Gavel,
   X,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { rememberGalleryReturnPosition } from '@/lib/galleryNavigation';
 
 const auctionImages = [
   {
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
-    fullSrc: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=90',
-    alt: 'Residential property available for auction',
-    label: 'used car',
+    src: 'dist/assets/images/scania1.jpeg',
+    fullSrc: 'dist/assets/images/scania1.jpeg',
+    alt: 'Scania truck auction listing poster',
+    label: 'Scania Truck Auction',
   },
   {
-    src: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=85',
-    fullSrc: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90',
-    alt: 'Vehicle available for auction',
-    label: 'Vehicles',
+    src: 'dist/assets/images/scania2.jpeg',
+    fullSrc: 'dist/assets/images/scania2.jpeg',
+    alt: 'Scania truck auction listing poster',
+    label: 'Scania Truck Auction',
   },
   {
-    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=85',
-    fullSrc: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=90',
-    alt: 'Commercial property available for auction',
-    label: 'Commercial assets',
+    src: 'dist/assets/images/scania3.jpeg',
+    fullSrc: 'dist/assets/images/scania3.jpeg',
+    alt: 'Scania truck auction listing poster',
+    label: 'Scania Truck Auction',
+  },
+  {
+    src: 'dist/assets/images/scania4.jpeg',
+    fullSrc: 'dist/assets/images/scania4.jpeg',
+    alt: 'Scania truck auction listing poster',
+    label: 'Scania Truck Auction',
+  },
+  {
+    src: 'dist/assets/images/scania5.jpeg',
+    fullSrc: 'dist/assets/images/scania5.jpeg',
+    alt: 'Scania truck auction listing poster',
+    label: 'Scania Truck Auction',
   },
 ];
 
@@ -85,9 +99,9 @@ export default function AuctionShowcase() {
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {auctionImages.map((image, index) => (
             <figure
-              key={image.label}
-              className={`group relative overflow-hidden rounded-lg bg-gray-100 ${
-                index === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
+              key={image.src}
+              className={`group relative overflow-hidden ${
+                index === 0 ? 'col-span-2 aspect-[4/5] sm:aspect-[16/10]' : 'aspect-[4/3]'
               }`}
             >
               <button
@@ -100,7 +114,7 @@ export default function AuctionShowcase() {
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary-900/80 to-transparent px-4 pb-4 pt-10 text-sm font-semibold text-white">
                   {image.label} · View image
@@ -118,7 +132,7 @@ export default function AuctionShowcase() {
             Zafrica Auctioneering
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight text-primary-900 md:text-4xl">
-            Professional auctions for property and assets
+            Look here for new live auctions.
           </h2>
           <p className="mt-5 leading-relaxed text-gray-600">
             From public and court-ordered auctions to voluntary liquidation
@@ -151,6 +165,14 @@ export default function AuctionShowcase() {
               Auction terms
               <ArrowRight size={16} aria-hidden="true" />
             </a>
+            <Link
+              to="/gallery"
+              onClick={rememberGalleryReturnPosition}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 hover:text-accent-700"
+            >
+              View gallery
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </div>

@@ -69,7 +69,7 @@ export default function Testimonials() {
                     {testimonial.name}
                   </span>
                   <span className="block text-xs leading-relaxed text-primary-600">
-                    {testimonial.client} · Sample profile
+                    {testimonial.client} 
                   </span>
                 </span>
               </figcaption>
