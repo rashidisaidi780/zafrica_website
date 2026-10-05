@@ -12,28 +12,28 @@ const services = [
     offerings: [
       {
         title: 'Public asset auctions',
-        image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.pexels.com/photos/31066018/pexels-photo-31066018.jpeg',
         imageAlt: 'Vehicle offered for public auction',
         description:
           'Public auctions for vehicles, land, houses, and other assets.',
       },
       {
         title: 'Court-ordered auctions',
-        image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.pexels.com/photos/6950140/pexels-photo-6950140.jpeg',
         imageAlt: 'Legal documents on a desk',
         description:
           'Auction services for assets being sold under a court order.',
       },
       {
         title: 'Voluntary liquidation sales',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.pexels.com/photos/5622928/pexels-photo-5622928.jpeg',
         imageAlt: 'Commercial office buildings',
         description:
           'Organized sales of assets as part of a voluntary liquidation.',
       },
       {
         title: 'Valuation and appraisal',
-        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.pexels.com/photos/37121447/pexels-photo-37121447.jpeg',
         imageAlt: 'House keys and property documents',
         description:
           'Valuation and appraisal services to support the sale of assets.',
@@ -49,28 +49,28 @@ const services = [
     offerings: [
       {
         title: 'Pre-legal debt recovery',
-        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85',
+        image: '',
         imageAlt: 'Financial documents being reviewed at a desk',
         description:
           'Follow-up and recovery support before a matter proceeds to legal action.',
       },
       {
         title: 'Corporate and individual follow-up',
-        image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.pexels.com/photos/9491008/pexels-photo-9491008.jpeg',
         imageAlt: 'Business professionals meeting around a table',
         description:
           'Debt follow-up services for both corporate and individual accounts.',
       },
       {
         title: 'Negotiated repayment solutions',
-        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=85',
         imageAlt: 'Calculator and financial paperwork',
         description:
           'Support to help clients and debtors negotiate repayment arrangements.',
       },
       {
         title: 'Repossession of secured assets',
-        image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85',
+        image: 'https://images.pexels.com/photos/29799518/pexels-photo-29799518.jpeg',
         imageAlt: 'Car being prepared for repossession',
         description:
           'Repossession support for assets pledged as security, handled in line with applicable requirements.',
