@@ -11,31 +11,7 @@ interface GalleryImage {
 }
 
 const featuredImages: GalleryImage[] = [
-  {
-    src: 'dist/assets/images/zafrica_logo_2.png',
-    alt: 'Zafrica auction listing poster',
-    label: 'Auction Listing',
-  },
-  {
-    src: '/assets/images/newpost1.png',
-    alt: 'Zafrica auction listing poster',
-    label: 'Auction Listing',
-  },
-  {
-    src: '/assets/images/newpost1.png',
-    alt: 'Zafrica auction listing poster',
-    label: 'Auction Listing',
-  },
-  {
-    src: '/assets/images/newpost1.png',
-    alt: 'Zafrica auction listing poster',
-    label: 'Auction Listing',
-  },
-  {
-    src: '/assets/images/newpost1.png',
-    alt: 'Zafrica auction listing poster',
-    label: 'Auction Listing',
-  },
+  
   {
     src: '/assets/images/newpost1.png',
     alt: 'Zafrica auction listing poster',
