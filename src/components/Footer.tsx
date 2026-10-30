@@ -170,15 +170,15 @@ export default function Footer() {
                 <Phone size={18} className="mt-0.5 shrink-0 text-accent-400" aria-hidden="true" />
                 <div className="flex flex-col gap-1">
                   <a href="tel:+255723763911" className="transition-colors hover:text-white">
-                    +255 723 763 911
+                    +255 666 004 358
                   </a>
                   <a
-                    href="https://wa.me/255666004358"
+                    href="https://wa.me/255723763911"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-white"
                   >
-                    {t('WhatsApp')}: +255 666 004 358
+                    {t('WhatsApp')}: +255 723 763 911
                   </a>
                 </div>
               </li>
