@@ -1,5 +1,8 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/lib/useLanguage';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import PageBackground from '@/components/PageBackground';
 
 interface GalleryImage {
   src: string;
@@ -9,82 +12,87 @@ interface GalleryImage {
 
 const featuredImages: GalleryImage[] = [
   {
-    src: 'dist/assets/images/scania1.jpeg',
-    alt: 'Scania truck auction listing poster',
-    label: 'Scania Truck Auction',
+    src: 'dist/assets/images/zafrica_logo_2.png',
+    alt: 'Zafrica auction listing poster',
+    label: 'Auction Listing',
   },
   {
-    src: 'dist/assets/images/scania2.jpeg',
-    alt: 'Scania truck auction listing poster',
-    label: 'Scania Truck Auction',
+    src: '/assets/images/newpost1.png',
+    alt: 'Zafrica auction listing poster',
+    label: 'Auction Listing',
   },
   {
-    src: 'dist/assets/images/scania3.jpeg',
-    alt: 'Scania truck auction listing poster',
-    label: 'Scania Truck Auction',
+    src: '/assets/images/newpost1.png',
+    alt: 'Zafrica auction listing poster',
+    label: 'Auction Listing',
   },
   {
-    src: 'dist/assets/images/scania4.jpeg',
-    alt: 'Scania truck auction listing poster',
-    label: 'Scania Truck Auction',
+    src: '/assets/images/newpost1.png',
+    alt: 'Zafrica auction listing poster',
+    label: 'Auction Listing',
   },
   {
-    src: 'dist/assets/images/scania5.jpeg',
-    alt: 'Scania truck auction listing poster',
-    label: 'Scania Truck Auction',
+    src: '/assets/images/newpost1.png',
+    alt: 'Zafrica auction listing poster',
+    label: 'Auction Listing',
   },
   {
-    src: 'dist/assets/images/newpost1.png',
-    alt: 'IST truck auction listing poster',
-    label: 'IST Truck Auction',
+    src: '/assets/images/newpost1.png',
+    alt: 'Zafrica auction listing poster',
+    label: 'Auction Listing',
   },
 ];
 
 export default function Gallery() {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const galleryImages = featuredImages;
 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="border-b border-gray-200 bg-white">
+    <div className="relative isolate min-h-screen bg-gray-50">
+      <PageBackground />
+      <header className="relative z-10 border-b border-gray-200 bg-white/90 backdrop-blur-sm">
         <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-5 lg:px-8">
-          <Link to="/" aria-label="Zafrica home" className="flex h-12 w-36 items-center">
+          <Link to="/" aria-label={t('Zafrica home')} className="flex h-12 w-36 items-center">
             <img
               src="/assets/images/zafrica_logo_1.png"
               alt="Zafrica"
               className="h-full w-full object-contain object-left"
             />
           </Link>
-          <button
-            type="button"
-            onClick={() => {
-              if (window.history.length > 1) {
-                navigate(-1);
-              } else {
-                navigate('/');
-              }
-            }}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 transition-colors hover:text-accent-600"
-          >
-            <ArrowLeft size={16} aria-hidden="true" />
-            Back
-          </button>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher onLight />
+            <button
+              type="button"
+              onClick={() => {
+                if (window.history.length > 1) {
+                  navigate(-1);
+                } else {
+                  navigate('/');
+                }
+              }}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 transition-colors hover:text-accent-600"
+            >
+              <ArrowLeft size={16} aria-hidden="true" />
+              {t('Back')}
+            </button>
+          </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-screen-2xl px-6 py-12 lg:px-8 lg:py-16">
+      <main className="relative z-10 mx-auto max-w-screen-2xl px-6 py-12 lg:px-8 lg:py-16">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-gray-200 pb-6">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-accent-700">
-              Zafrica Auctioneering
+              {t('Zafrica Auctioneering')}
             </p>
             <h1 className="mt-2 text-3xl font-bold leading-tight text-primary-900 sm:text-4xl">
-              Auction gallery
+              {t('Auction gallery')}
             </h1>
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <p className="text-sm text-gray-500">
-            {galleryImages.length} {galleryImages.length === 1 ? 'image' : 'images'}
+              {galleryImages.length} {t(galleryImages.length === 1 ? 'image' : 'images')}
             </p>
           </div>
         </div>
@@ -101,13 +109,13 @@ export default function Gallery() {
               <div className="aspect-[3/4] overflow-hidden bg-gray-50">
                 <img
                   src={image.src}
-                  alt={image.alt}
+                  alt={t(image.alt)}
                   loading="lazy"
                   className="h-full w-full object-contain"
                 />
               </div>
               <figcaption className="mt-3 text-sm font-semibold text-primary-800">
-                <span className="min-w-0 break-words">{image.label}</span>
+                <span className="min-w-0 break-words">{t(image.label)}</span>
               </figcaption>
             </figure>
           ))}

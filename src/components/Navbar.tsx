@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { rememberGalleryReturnPosition } from '@/lib/galleryNavigation';
+import { useLanguage } from '@/lib/useLanguage';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -11,6 +12,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [termsOpen, setTermsOpen] = useState(false);
@@ -39,7 +41,7 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => handleNavClick('#home')}
-          aria-label="Zafrica home"
+          aria-label={t('Zafrica home')}
           className="flex h-12 w-36 items-center"
         >
           <img
@@ -50,24 +52,32 @@ export default function Navbar() {
         </button>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-5">
+        <ul className="hidden lg:flex items-center gap-5">
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
                 onClick={() => handleNavClick(link.href)}
                 className="text-sm font-medium text-primary-100 hover:text-white transition-colors duration-200"
               >
-                {link.label}
+                {t(link.label)}
               </button>
             </li>
           ))}
+          <li>
+            <Link
+              to="/faq"
+              className="text-sm font-medium text-primary-100 transition-colors duration-200 hover:text-white"
+            >
+              {t('FAQ')}
+            </Link>
+          </li>
           <li>
             <Link
               to="/gallery"
               onClick={rememberGalleryReturnPosition}
               className="text-sm font-medium text-primary-100 transition-colors duration-200 hover:text-white"
             >
-              Gallery
+              {t('Gallery')}
             </Link>
           </li>
           <li className="relative">
@@ -78,7 +88,7 @@ export default function Navbar() {
               onClick={() => setTermsOpen(!termsOpen)}
               className="inline-flex items-center gap-1 text-sm font-medium text-primary-100 transition-colors duration-200 hover:text-white"
             >
-              Terms &amp; Conditions
+              {t('Terms & Conditions')}
               <ChevronDown size={15} aria-hidden="true" />
             </button>
             {termsOpen && (
@@ -92,7 +102,7 @@ export default function Navbar() {
                   onClick={() => setTermsOpen(false)}
                   className="block rounded px-3 py-2.5 text-sm font-medium text-primary-800 transition-colors hover:bg-gray-50 hover:text-accent-700"
                 >
-                  Auction service terms
+                  {t('Auction service terms')}
                 </Link>
                 <Link
                   to="/terms/debt-collection-services"
@@ -100,7 +110,7 @@ export default function Navbar() {
                   onClick={() => setTermsOpen(false)}
                   className="block rounded px-3 py-2.5 text-sm font-medium text-primary-800 transition-colors hover:bg-gray-50 hover:text-accent-700"
                 >
-                  Debt collection terms
+                  {t('Debt collection terms')}
                 </Link>
                 <Link
                   to="/terms/repossession-services"
@@ -108,26 +118,40 @@ export default function Navbar() {
                   onClick={() => setTermsOpen(false)}
                   className="block rounded px-3 py-2.5 text-sm font-medium text-primary-800 transition-colors hover:bg-gray-50 hover:text-accent-700"
                 >
-                  Repossession service terms
+                  {t('Repossession service terms')}
                 </Link>
               </div>
             )}
+          </li>
+          <li>
+            <label className="sr-only" htmlFor="desktop-language">
+              {t('Language')}
+            </label>
+            <select
+              id="desktop-language"
+              value={language}
+              onChange={(event) => setLanguage(event.target.value === 'sw' ? 'sw' : 'en')}
+              className="rounded-md border border-primary-600 bg-primary-900/40 px-2 py-2 text-sm font-medium text-primary-100 outline-none transition-colors hover:border-primary-400 focus:border-accent-400"
+            >
+              <option className="text-primary-900" value="en">{t('English')}</option>
+              <option className="text-primary-900" value="sw">{t('Swahili')}</option>
+            </select>
           </li>
         </ul>
 
         {/* CTA desktop */}
         <button
           onClick={() => handleNavClick('#contact')}
-          className="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-accent-500 text-white rounded-md hover:bg-accent-600 transition-colors duration-200"
+          className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-accent-500 text-white rounded-md hover:bg-accent-600 transition-colors duration-200"
         >
-          Get in Touch
+          {t('Get in Touch')}
         </button>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white p-2"
-          aria-label="Toggle menu"
+          className="lg:hidden text-white p-2"
+          aria-label={t('Toggle menu')}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -135,7 +159,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-primary-900/98 backdrop-blur-md border-t border-primary-700 animate-fade-in">
+        <div className="lg:hidden bg-primary-900/98 backdrop-blur-md border-t border-primary-700 animate-fade-in">
           <ul className="flex flex-col px-6 py-4 gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -143,10 +167,19 @@ export default function Navbar() {
                   onClick={() => handleNavClick(link.href)}
                   className="block w-full text-left py-2 text-base font-medium text-primary-100 hover:text-white transition-colors"
                 >
-                  {link.label}
+                  {t(link.label)}
                 </button>
               </li>
             ))}
+            <li>
+              <Link
+                to="/faq"
+                onClick={() => setMenuOpen(false)}
+                className="block py-2 text-base font-medium text-primary-100 transition-colors hover:text-white"
+              >
+                {t('FAQ')}
+              </Link>
+            </li>
             <li>
               <Link
                 to="/gallery"
@@ -156,33 +189,33 @@ export default function Navbar() {
                 }}
                 className="block py-2 text-base font-medium text-primary-100 transition-colors hover:text-white"
               >
-                Gallery
+                {t('Gallery')}
               </Link>
             </li>
             <li className="border-t border-primary-700 pt-3">
               <p className="mb-2 text-xs font-semibold uppercase text-primary-300">
-                Terms &amp; Conditions
+                {t('Terms & Conditions')}
               </p>
               <Link
                 to="/terms/auction-services"
                 onClick={() => setMenuOpen(false)}
                 className="block py-2 text-base font-medium text-primary-100 hover:text-white"
               >
-                Auction service terms
+                {t('Auction service terms')}
               </Link>
               <Link
                 to="/terms/debt-collection-services"
                 onClick={() => setMenuOpen(false)}
                 className="block py-2 text-base font-medium text-primary-100 hover:text-white"
               >
-                Debt collection terms
+                {t('Debt collection terms')}
               </Link>
               <Link
                 to="/terms/repossession-services"
                 onClick={() => setMenuOpen(false)}
                 className="block py-2 text-base font-medium text-primary-100 hover:text-white"
               >
-                Repossession service terms
+                {t('Repossession service terms')}
               </Link>
             </li>
             <li>
@@ -190,8 +223,22 @@ export default function Navbar() {
                 onClick={() => handleNavClick('#contact')}
                 className="block w-full text-center px-5 py-3 text-base font-semibold bg-accent-500 text-white rounded-md hover:bg-accent-600 transition-colors"
               >
-                Get in Touch
+                {t('Get in Touch')}
               </button>
+            </li>
+            <li className="border-t border-primary-700 pt-3">
+              <label htmlFor="mobile-language" className="mb-2 block text-xs font-semibold uppercase text-primary-300">
+                {t('Language')}
+              </label>
+              <select
+                id="mobile-language"
+                value={language}
+                onChange={(event) => setLanguage(event.target.value === 'sw' ? 'sw' : 'en')}
+                className="w-full rounded-md border border-primary-600 bg-primary-800 px-3 py-2.5 text-base font-medium text-primary-100 outline-none focus:border-accent-400"
+              >
+                <option className="text-primary-900" value="en">{t('English')}</option>
+                <option className="text-primary-900" value="sw">{t('Swahili')}</option>
+              </select>
             </li>
           </ul>
         </div>

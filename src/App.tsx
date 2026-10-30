@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import AuctionShowcase from '@/components/AuctionShowcase';
 import About from '@/components/About';
 import CompanyProfile from '@/components/CompanyProfile';
 import Services from '@/components/Services';
@@ -13,6 +12,7 @@ import AuctionTerms from '@/pages/AuctionTerms';
 import RepossessionTerms from '@/pages/RepossessionTerms';
 import DebtCollectionTerms from '@/pages/DebtCollectionTerms';
 import Gallery from '@/pages/Gallery';
+import FaqPage from '@/pages/Faq';
 import { Route, Routes } from 'react-router-dom';
 import { restoreGalleryReturnPosition } from '@/lib/galleryNavigation';
 
@@ -26,9 +26,7 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <SectionWave fromColor="#0d1b2a" toColor="#ffffff" />
-        <AuctionShowcase />
-        <SectionWave fromColor="#ffffff" toColor="#f9fafb" />
+        <SectionWave fromColor="#0d1b2a" toColor="#f9fafb" />
         <About />
         <SectionWave fromColor="#f9fafb" toColor="#ffffff" />
         <CompanyProfile />
@@ -51,6 +49,7 @@ function App() {
       <Route path="/terms/auction-services" element={<AuctionTerms />} />
       <Route path="/terms/repossession-services" element={<RepossessionTerms />} />
       <Route path="/terms/debt-collection-services" element={<DebtCollectionTerms />} />
+      <Route path="/faq" element={<FaqPage />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="*" element={<HomePage />} />
     </Routes>

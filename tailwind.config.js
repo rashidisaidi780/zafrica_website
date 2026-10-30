@@ -30,7 +30,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat Alternates', 'system-ui', 'sans-serif'],
         display: ['Georgia', 'serif'],
       },
       animation: {
